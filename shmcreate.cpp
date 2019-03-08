@@ -1,5 +1,5 @@
 
-#include <XUtil/XSharedMemory.hpp>
+#include "shm.hpp"
 #include <XUtil/XStr.hpp>
 
 int main(int argc, char* argv[])
@@ -16,8 +16,11 @@ int main(int argc, char* argv[])
 	}
 
 	XUtil::XSharedMemoryRemove shm_remove(argv[1]);
-
+#if TEST_MEMORY
+	XUtil::XSharedMemory<true> shm(argv[1],XUtil::strto<size_t>(argv[2]));
+#else
 	XUtil::XSharedMemory<> shm(argv[1],XUtil::strto<size_t>(argv[2]));
+#endif
 	
 	return 0;
 }

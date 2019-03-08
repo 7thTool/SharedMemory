@@ -1,4 +1,4 @@
-#include <XUtil/XSharedMemory.hpp>
+#include "shm.hpp"
 #include <XUtil/XStr.hpp>
 
 int main(int argc, char* argv[])
